@@ -1,0 +1,24 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  .logo {
+    display: flex;
+    align-items: center;
+    .img {
+      width: 200px;
+    }
+  }
+  .sign {
+    margin-right: 0.5rem;
+  }
+  .sign:hover {
+    text-decoration: underline;
+  }
+  .signText {
+    margin-left: 0.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+}
