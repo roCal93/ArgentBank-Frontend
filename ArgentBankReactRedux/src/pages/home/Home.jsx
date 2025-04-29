@@ -12,11 +12,12 @@ const Home = () => {
       <h2 className="sr-only">Features</h2>
       <ul className={styles.features}>
         {featureList.map((data) => (
-          <li key={data.id}>
+          <li className={styles.list} key={data.id}>
             <FeatureItem
               title={data.title}
               content={data.content}
               icon={data.icon}
+              iconAlt={data.iconAlt}
             />
           </li>
         ))}

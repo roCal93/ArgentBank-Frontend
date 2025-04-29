@@ -1,10 +1,11 @@
 import React from 'react'
+import styles from './featureItem.module.scss'
 
 const FeatureItem = (props) => {
   return (
-    <div>
-      <img src={props.icon} alt="Icon" />
-      <h3>{props.title}</h3>
+    <div className={styles.featureItem}>
+      <img className={styles.icon} src={props.icon} alt={props.iconAlt} />
+      <h3 className={styles.title}>{props.title}</h3>
       <p>{props.content}</p>
     </div>
   )

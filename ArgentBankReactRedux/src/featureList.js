@@ -6,6 +6,7 @@ export const featureList = [
         content:
             'Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes.',
         icon: '/src/assets/img/icon-chat.png',
+        iconAlt: 'Icon-chat',
     },
     {
         id: 1,
@@ -13,6 +14,7 @@ export const featureList = [
         content:
             'The more you save with us, the higher your interest rate will be!',
         icon: '/src/assets/img/icon-money.png',
+        iconAlt: 'Icon-money',
     },
     {
         id: 3,
@@ -20,5 +22,6 @@ export const featureList = [
         content:
             'We use top of the line encryption to make sure your data and money is always safe.',
         icon: '/src/assets/img/icon-security.png',
+        iconAlt: 'Icon-security',
     },
 ]

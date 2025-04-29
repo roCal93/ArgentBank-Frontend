@@ -4,7 +4,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 // Réinitialisation du HTML5
@@ -42,8 +41,7 @@ a:hover {
 // Réinitialisation des formulaires
 input,
 textarea,
-select,
-button {
+select {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -51,14 +49,6 @@ button {
   border: none;
   appearance: none;
   -webkit-appearance: none;
-}
-
-// Images responsives
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  border-style: none;
 }
 
 // Boutons
