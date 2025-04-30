@@ -6,6 +6,7 @@ import Home from './pages/home/Home.jsx'
 import SignIn from './pages/sign-in/SignIn.jsx'
 import NotFound from './pages/not-found/NotFound.jsx'
 import User from './pages/user/User.jsx'
+import Transaction from './pages/transaction/Transaction.jsx'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/user',
         element: <User />,
+      },
+      {
+        path: '/transaction/:id',
+        element: <Transaction />,
       },
       {
         path: '*',
