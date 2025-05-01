@@ -5,7 +5,6 @@ import Footer from '../components/footer/Footer'
 import '../styles/reset.scss'
 import '../styles/global.scss'
 
-
 function App() {
   return (
     <div>

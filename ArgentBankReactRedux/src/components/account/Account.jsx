@@ -10,7 +10,7 @@ const Account = (props) => {
   const { id } = useParams()
 
   return (
-    <div>
+    <div className={styles.accountContenant}>
       {selectedAccount.map((account) =>
         id === account.id ? (
           <section key={account.id} className={styles.transaction}>
