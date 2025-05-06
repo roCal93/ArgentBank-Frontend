@@ -5,7 +5,7 @@ import Account from '../../components/account/Account'
 import EditUserForm from '../../components/editUserForm/EditUserForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { getUser } from '../../features/UserInfoSlice'
+import { getUser } from '../../features/userInfoSlice'
 
 const User = () => {
   const [isActive, setIsActive] = useState(false)

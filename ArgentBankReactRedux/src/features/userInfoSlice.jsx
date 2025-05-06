@@ -15,7 +15,6 @@ export const getUser = createAsyncThunk('user/getUser', async () => {
     )
   }
   const user = await response.json()
-  console.log(user)
   return user
 })
 
