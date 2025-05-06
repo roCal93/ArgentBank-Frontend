@@ -1,22 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './user.module.scss'
 import { accountList } from '../../accountList'
 import Account from '../../components/account/Account'
 import EditUserForm from '../../components/editUserForm/EditUserForm'
+import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
+import { getUser } from '../../features/UserInfoSlice'
 
 const User = () => {
   const [isActive, setIsActive] = useState(false)
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+
+  const dispatch = useDispatch()
+  const { user, loading, error } = useSelector((state) => state.userInfo)
+  const currentUser = user?.body
+
+  useEffect(() => {
+    dispatch(getUser())
+  }, [dispatch])
+  if (loading) {
+    return <p>Chargement...</p>
+  }
+
+  if (error) {
+    return <p>Erreur : {error}</p>
+  }
+  if (!isAuthenticated) {
+    return <Navigate to="/" />
+  }
 
   return (
     <div className={styles.main}>
       {isActive ? (
-        <EditUserForm isActive={isActive} setIsActive={setIsActive} />
+        <EditUserForm
+          isActive={isActive}
+          setIsActive={setIsActive}
+          user={currentUser}
+        />
       ) : (
         <div className={styles.welcome}>
           <h1>
             Welcome back
             <br />
-            Tony Jarvis!
+            {currentUser
+              ? `${currentUser.firstName} ${currentUser.lastName}!`
+              : 'Utilisateur inconnu'}
           </h1>
           <button
             onClick={() => setIsActive(!isActive)}

@@ -2,8 +2,12 @@ import React from 'react'
 import { Link } from 'react-router'
 import logo from '../../assets/img/argentBankLogo.png'
 import styles from './header.module.scss'
+import SignInOutButton from '../signInOutButton/SignInOutButton'
+import { useSelector } from 'react-redux'
+import UserButton from '../userButton/UserButton'
 
 const Header = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
   return (
     <div>
       <nav className={styles.nav}>
@@ -11,10 +15,10 @@ const Header = () => {
           <img className={styles.img} src={logo} alt="Argent Bank Logo" />
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
-        <Link to="/sign-in" className={styles.sign}>
-          <i className="fa fa-user-circle"></i>
-          <span className={styles.signText}>Sign In</span>
-        </Link>
+        <div className={styles.links}>
+          {isAuthenticated && <UserButton />}
+          <SignInOutButton />
+        </div>
       </nav>
     </div>
   )

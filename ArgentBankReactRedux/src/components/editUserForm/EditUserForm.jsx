@@ -1,8 +1,7 @@
-import React from 'react'
 import styles from './editUserForm.module.scss'
 import UserInput from '../userInput/UserInput'
 
-const EditUserForm = ({ isActive, setIsActive }) => {
+const EditUserForm = ({ isActive, setIsActive, user }) => {
   return (
     <div>
       <section className={styles.content}>
@@ -11,11 +10,21 @@ const EditUserForm = ({ isActive, setIsActive }) => {
           <UserInput />
           <div className={styles.inputWrapper}>
             <label htmlFor="firstName">First name</label>
-            <input type="text" id="firstName" readOnly placeholder="Coucou" />
+            <input
+              type="text"
+              id="firstName"
+              readOnly
+              placeholder={user ? user.firstName : ''}
+            />
           </div>
           <div className={styles.inputWrapper}>
             <label htmlFor="lastName">Last name</label>
-            <input type="text" id="lastName" readOnly placeholder="Salut" />
+            <input
+              type="text"
+              id="lastName"
+              readOnly
+              placeholder={user ? user.lastName : ''}
+            />
           </div>
           <div className={styles.buttonWrapper}>
             <button className={styles.button}>Save</button>
