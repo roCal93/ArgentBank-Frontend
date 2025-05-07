@@ -16,6 +16,6 @@ export const accountList = [
         id: "3",
         title: 'Argent Bank Credit Card (x8349)',
         content:
-            184.3,
+            184.
     },
 ]

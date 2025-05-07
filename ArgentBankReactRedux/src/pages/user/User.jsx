@@ -18,6 +18,11 @@ const User = () => {
   useEffect(() => {
     dispatch(getUser())
   }, [dispatch])
+
+  if (currentUser) {
+    document.title = `Argent Bank - ${currentUser.userName}`
+  }
+
   if (loading) {
     return <p>Chargement...</p>
   }

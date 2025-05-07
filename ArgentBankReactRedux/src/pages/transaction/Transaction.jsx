@@ -20,6 +20,7 @@ const Transaction = () => {
 
   return (
     <div>
+      <title>Argent Bank - Transaction</title>
       <Account id={id} />
       <div className={styles.title}>
         <div className={styles.title1}>
