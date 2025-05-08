@@ -5,20 +5,22 @@ import Account from '../../components/account/Account'
 import EditUserForm from '../../components/editUserForm/EditUserForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { getUser } from '../../features/userInfoSlice'
+import { getUser } from '../../features/userInfoSlice' // Importing the async thunk to fetch user data
 
 const User = () => {
-  const [isActive, setIsActive] = useState(false)
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+  const [isActive, setIsActive] = useState(false) // State to toggle edit form visibility
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated) // Accessing authentication status from Redux
 
   const dispatch = useDispatch()
-  const { user, loading, error } = useSelector((state) => state.userInfo)
-  const currentUser = user?.body
+  const { user, loading, error } = useSelector((state) => state.userInfo) // Accessing user information and states from Redux
+  const currentUser = user?.body // Extracting user data safely
 
+  // Fetch user data when the component mounts
   useEffect(() => {
-    dispatch(getUser())
+    dispatch(getUser()) // Dispatching the action to fetch user information
   }, [dispatch])
 
+  // Setting the document title if the current user exists
   if (currentUser) {
     document.title = `Argent Bank - ${currentUser.userName}`
   }
@@ -30,13 +32,14 @@ const User = () => {
   if (error) {
     return <p>Erreur : {error}</p>
   }
+  // Redirect to home if not authenticated
   if (!isAuthenticated) {
     return <Navigate to="/" />
   }
 
   return (
     <div className={styles.main}>
-      {isActive ? (
+      {isActive ? ( // Conditional rendering to show edit form or welcome message
         <EditUserForm
           isActive={isActive}
           setIsActive={setIsActive}

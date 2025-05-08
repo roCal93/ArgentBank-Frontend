@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { login } from '../../features/authSlice'
-import { logout } from '../../features/authSlice'
+import { login } from '../../features/authSlice' // Importing the login action from the auth slice
+import { logout } from '../../features/authSlice' // Importing the logout action from the auth slice
 
+// Creating an asynchronous action for user login
 export const loginUser = createAsyncThunk(
-  'data/postData',
+  'data/postData', // Action type
   async (newData, { dispatch }) => {
     const response = await fetch('http://localhost:3001/api/v1/user/login', {
       method: 'POST',
@@ -14,20 +15,22 @@ export const loginUser = createAsyncThunk(
     })
 
     if (!response.ok) {
-      throw new Error("Erreur lors de l'envoi des données")
+      throw new Error('Error while sending data')
     }
 
     const data = await response.json()
     localStorage.setItem('token', data.body.token)
-    dispatch(login({ token: data.body.token }))
+    dispatch(login({ token: data.body.token })) // Dispatch the login action with the token
   }
 )
 
+// Action to log out the user
 export const logoutUser = () => (dispatch) => {
-  localStorage.removeItem('token') // Supprime le token du stockage
-  dispatch(logout()) // Appelle l'action logout
+  localStorage.removeItem('token')
+  dispatch(logout()) // Dispatch the logout action
 }
 
+// Create a slice to manage the login state
 const signInFormSlice = createSlice({
   name: 'login',
   initialState: {
@@ -37,6 +40,7 @@ const signInFormSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+    // Manage the different states of the asynchronous action loginUser
     builder
       .addCase(loginUser.pending, (state) => {
         state.status = 'loading'

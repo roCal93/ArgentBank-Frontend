@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import UserButton from '../userButton/UserButton'
 
 const Header = () => {
+  // Using useSelector to get authentication status from Redux state
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
   return (
     <div>

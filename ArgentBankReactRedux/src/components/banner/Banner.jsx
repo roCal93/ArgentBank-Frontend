@@ -10,7 +10,11 @@ const Banner = () => {
       <picture>
         <source srcSet={bannerImg480} media="(max-width: 480px)" />
         <source srcSet={bannerImg1400} media="(min-width: 1200px)" />
-        <img className={styles.img} src={bannerImg920} alt="bank-tree" />
+        <img
+          className={styles.img}
+          src={bannerImg920}
+          alt="A tree representing banking services at Argent Bank"
+        />
       </picture>
       <section className={styles.content}>
         <h2 className="sr-only">Promoted Content</h2>

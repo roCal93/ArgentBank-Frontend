@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+// Create an asynchronous thunk action for updating the user's name
 export const userName = createAsyncThunk('data/putData', async (newData) => {
+  // Make a PUT request to update the user profile
   const response = await fetch('http://localhost:3001/api/v1/user/profile', {
     method: 'PUT',
     headers: {
@@ -16,6 +18,7 @@ export const userName = createAsyncThunk('data/putData', async (newData) => {
   return data
 })
 
+// Create a slice of the Redux store for managing the user edit form state
 const editUserFormSlice = createSlice({
   name: 'newUserName',
   initialState: {
@@ -24,6 +27,8 @@ const editUserFormSlice = createSlice({
     error: null,
   },
   reducers: {},
+
+  // Handle asynchronous actions with extra reducers
   extraReducers: (builder) => {
     builder
       .addCase(userName.pending, (state) => {
@@ -31,7 +36,7 @@ const editUserFormSlice = createSlice({
       })
       .addCase(userName.fulfilled, (state, action) => {
         state.status = 'succeeded'
-        state.items.push(action.payload)
+        state.items.push(action.payload) // Add the updated username to the items array
       })
       .addCase(userName.rejected, (state, action) => {
         state.status = 'failed'

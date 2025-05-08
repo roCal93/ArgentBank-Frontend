@@ -13,6 +13,7 @@ const SignInForm = () => {
   const [newPassword, setNewPassword] = useState('')
   const [isRemembered, setIsRemembered] = useState(false)
 
+  // Effect hook to retrieve saved email and password from local storage
   useEffect(() => {
     const savedEmail = localStorage.getItem('savedEmail')
     const savedPassword = localStorage.getItem('savedPassword')
@@ -20,11 +21,14 @@ const SignInForm = () => {
     if (savedPassword) setNewPassword(savedPassword)
   }, [])
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(loginUser({ email: newEmail, password: newPassword })).then(
       (action) => {
+        // Handle the response of the login action
         if (action.type === 'data/postData/fulfilled') {
+          // If login was successful
           if (isRemembered) {
             localStorage.setItem('savedEmail', newEmail)
             localStorage.setItem('savedPassword', newPassword)
@@ -32,10 +36,11 @@ const SignInForm = () => {
             localStorage.removeItem('savedEmail')
             localStorage.removeItem('savedPassword')
           }
-          navigate('/user')
+          navigate('/user') // Redirect to the user dashboard
         }
       }
     )
+    // Reset form fields
     setNewEmail('')
     setNewPassword('')
   }
@@ -82,9 +87,7 @@ const SignInForm = () => {
           <div className={styles.message}>Loading...</div>
         )}
         {status === 'failed' && (
-          <div className={`${styles.message} ${styles.error}`}>
-            Error: {error}
-          </div>
+          <div className={`${styles.message} ${styles.error}`}>{error}</div>
         )}
       </section>
     </div>

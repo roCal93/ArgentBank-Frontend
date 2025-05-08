@@ -48,7 +48,7 @@ const Collapsible = (props) => {
             : `${styles.content} ${styles.close}`
         }
       >
-        <Details />
+        <Details id={props.id} />
       </div>
     </div>
   )

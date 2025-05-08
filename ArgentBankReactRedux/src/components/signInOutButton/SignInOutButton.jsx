@@ -2,14 +2,15 @@ import React from 'react'
 import styles from './signInOutButton.module.scss'
 import { Link } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
-import { logoutUser } from '../signInForm/signInFormSlice'
+import { logoutUser } from '../signInForm/signInFormSlice' // Importing the logout action
 
 const SignInOutButton = () => {
   const dispatch = useDispatch()
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated) // Accessing authentication status from Redux state
 
+  // Function to handle user logout
   const handleLogout = () => {
-    dispatch(logoutUser())
+    dispatch(logoutUser()) // Dispatching the logout action
   }
   return (
     <div>

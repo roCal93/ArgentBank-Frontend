@@ -5,11 +5,11 @@ import userInfoReducer from '../features/userInfoSlice'
 import userNameReducer from '../components/editUserForm/editUserFormSlice'
 
 const store = configureStore({
-    reducer: {
-        login: loginReducer,
-        auth: authReducer,
-        userInfo: userInfoReducer,
-        newUserName: userNameReducer
+    reducer: {// Object defining the available reducers in the store.
+        login: loginReducer, // Manages login state.
+        auth: authReducer, // Manages authentication state.
+        userInfo: userInfoReducer, // Manages user information.
+        newUserName: userNameReducer // Manages the state of the new username.
     },
 });
 

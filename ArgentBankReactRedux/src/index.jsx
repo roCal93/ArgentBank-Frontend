@@ -7,9 +7,10 @@ import SignIn from './pages/sign-in/SignIn.jsx'
 import NotFound from './pages/not-found/NotFound.jsx'
 import User from './pages/user/User.jsx'
 import Transaction from './pages/transaction/Transaction.jsx'
-import { Provider } from 'react-redux'
-import store from './app/store.js'
+import { Provider } from 'react-redux' // Importing Provider to connect the Redux store
+import store from './app/store.js' // Importing the Redux store
 
+// Creating a browser router with defined routes
 const router = createBrowserRouter([
   {
     path: '/',
@@ -39,10 +40,14 @@ const router = createBrowserRouter([
   },
 ])
 
+// Rendering the application into the root HTML node
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      {' '}
+      {/* Providing the Redux store to the app */}
+      <RouterProvider router={router} />{' '}
+      {/* Setting up the router for navigation */}
     </Provider>
   </React.StrictMode>
 )
