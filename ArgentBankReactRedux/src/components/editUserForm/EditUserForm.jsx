@@ -36,7 +36,7 @@ const EditUserForm = ({ isActive, setIsActive, user }) => {
   return (
     <div>
       <section className={styles.content}>
-        <h1>Edit user info</h1>
+        <h2>Edit user info</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.inputWrapper}>
             <label htmlFor="username">Username</label>

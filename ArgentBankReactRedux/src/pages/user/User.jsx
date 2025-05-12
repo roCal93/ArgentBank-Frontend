@@ -47,13 +47,13 @@ const User = () => {
         />
       ) : (
         <div className={styles.welcome}>
-          <h1>
+          <h2>
             Welcome back
             <br />
             {currentUser
               ? `${currentUser.firstName} ${currentUser.lastName}!`
               : 'Utilisateur inconnu'}
-          </h1>
+          </h2>
           <button
             onClick={() => setIsActive(!isActive)}
             className={styles.button}

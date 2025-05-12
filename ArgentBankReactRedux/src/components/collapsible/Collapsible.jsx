@@ -28,9 +28,12 @@ const Collapsible = (props) => {
           <h3>{props.title}</h3>
         </div>
         <div className={styles.amountBalance}>
-          <p>{props.amount}</p>
-          <p>{props.balance}</p>
-          <button onClick={() => toggleContent(props.id)}>
+          <p>${props.amount}</p>
+          <p>${props.balance}</p>
+          <button
+            aria-label="Show/hide content"
+            onClick={() => toggleContent(props.id)}
+          >
             <i
               className={
                 showMore[props.id]

@@ -48,7 +48,7 @@ const SignInForm = () => {
     <div>
       <section className={styles.content}>
         <i className="fa fa-user-circle sign-in-icon"></i>
-        <h1>Sign In</h1>
+        <h2>Sign In</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.inputWrapper}>
             <label htmlFor="email">Email</label>
