@@ -8,7 +8,7 @@ import NotFound from './pages/not-found/NotFound.jsx'
 import User from './pages/user/User.jsx'
 import Transaction from './pages/transaction/Transaction.jsx'
 import { Provider } from 'react-redux' // Importing Provider to connect the Redux store
-import store from './app/store.js' // Importing the Redux store
+import store from './app/store.jsx' // Importing the Redux store
 
 // Creating a browser router with defined routes
 const router = createBrowserRouter([

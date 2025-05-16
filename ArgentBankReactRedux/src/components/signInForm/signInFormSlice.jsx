@@ -34,7 +34,7 @@ export const logoutUser = () => (dispatch) => {
 const signInFormSlice = createSlice({
   name: 'login',
   initialState: {
-    items: [],
+    token: null,
     status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
   },
@@ -47,7 +47,7 @@ const signInFormSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = 'succeeded'
-        state.items.push(action.payload)
+        state.token = action.payload
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = 'failed'

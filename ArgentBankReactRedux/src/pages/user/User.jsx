@@ -9,10 +9,12 @@ import { getUser } from '../../features/userInfoSlice' // Importing the async th
 
 const User = () => {
   const [isActive, setIsActive] = useState(false) // State to toggle edit form visibility
+
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated) // Accessing authentication status from Redux
+  const { user, loading, error } = useSelector((state) => state.userInfo) // Accessing user information and states from Redux
 
   const dispatch = useDispatch()
-  const { user, loading, error } = useSelector((state) => state.userInfo) // Accessing user information and states from Redux
+
   const currentUser = user?.body // Extracting user data safely
 
   // Fetch user data when the component mounts
